@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="styless.css">
+        <style>
+           
+            .button {
+                position: relative;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div>
+                <h1 class="text">momos medich tha</h1>
+                <p>Dare to say No</p>
+            </div>
+            <div class="gif">
+                <img src="https://media.tenor.com/HVJO8LsX3wYAAAAi/mochi-so-cute.gif">
+            </div>
+            <br>
+            
+            <div class="button">
+                <button class="btn" id="yesbutton" onclick="next()">Yes</button> 
+                <button class="btn" id="nobutton" onmouseover="startMoving()" onmouseout="stopMoving()">No</button> 
+                <script>
+                    var moveInterval;
+
+                    function startMoving() {
+                        moveInterval = setInterval(move, 100);
+                    }
+
+                    function stopMoving() {
+                        clearInterval(moveInterval);
+                    }
+
+                    function move() {
+                        var x = Math.random() * (window.innerWidth - document.getElementById('nobutton').offsetWidth);
+                        var y = Math.random() * (window.innerHeight - document.getElementById('nobutton').offsetHeight);
+                        document.getElementById('nobutton').style.left = `${x}px`;
+                        document.getElementById('nobutton').style.top = `${y}px`;
+                    }
+
+                    function next() {
+                        window.location.href = "yes.html";
+                    }
+                </script>
+            </div>
+        </div>
+    </body>
+</html>
